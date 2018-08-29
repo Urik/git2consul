@@ -1,7 +1,6 @@
-FROM node:alpine
+FROM node:10-alpine
 COPY . /git2consul
 WORKDIR /git2consul
 RUN apk add git openssh ca-certificates
 RUN npm install
-
 ENTRYPOINT ["node", "index.js"]
