@@ -21,6 +21,7 @@
     "coveralls": "^2.11.2",
     "express": "~4.6.1",
     "js-yaml": "^3.6.1",
+    "memoizee": "^0.4.14",
     "mkdirp": "0.5.0",
     "properties": "1.2.1",
     "rimraf": "2.2.8",

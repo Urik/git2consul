@@ -1,5 +1,5 @@
 var _ = require('underscore');
-var consul = require('consul')();
+const { getConsul } = require('../lib/consul/consul_factory');
 
 var kill_entry = function(key) {
 
@@ -14,7 +14,7 @@ var kill_entry = function(key) {
     params = _.extend(params, {'token': process.env.TOKEN})
   }
 
-  consul.kv.del(params, function(err) {
+  getConsul().kv.del(params, function(err) {
     if (err) return console.error(err);
   });
 };
@@ -26,7 +26,7 @@ if (process.env.TOKEN) {
   params = _.extend(get_all_params, {'token': process.env.TOKEN})
 }
 
-consul.kv.get(get_all_params, function (err, items) {
+getConsul().kv.get(get_all_params, function (err, items) {
   if (err) return console.error(err);
 
   if (items) {
